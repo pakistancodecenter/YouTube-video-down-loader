@@ -6,6 +6,7 @@ from PyInstaller.utils.hooks import collect_data_files, collect_submodules
 
 ROOT = Path(SPEC).resolve().parents[1]
 SRC = ROOT / "src"
+ARCHIVE = ROOT / "youtube-video-downloader.zip"
 
 hiddenimports = []
 for package in ("yt_dlp", "flask", "werkzeug", "jinja2", "PySide6"):
@@ -17,6 +18,8 @@ for package in ("yt_dlp", "flask", "jinja2", "PySide6"):
         datas.extend(collect_data_files(package))
     except Exception:
         pass
+if ARCHIVE.is_file():
+    datas.append((str(ARCHIVE), "."))
 
 analysis = Analysis(
     [str(SRC / "youtube_downloader" / "main.py")],

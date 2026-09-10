@@ -1,0 +1,12 @@
+{
+  "name": "PCC YouTube Video Downloader",
+  "slug": "pcc-youtube-video-downloader",
+  "version": "1.0.0",
+  "description": "Desktop video downloader using yt-dlp with a Flask local web UI hosted inside PySide6 WebEngine.",
+  "entry_point": "src/youtube_downloader/main.py",
+  "module": "youtube_downloader.main",
+  "python": ">=3.10,<3.14",
+  "build": {"system": "Windows", "tool": "PyInstaller", "spec": "packaging/main.spec", "installer": "packaging/installer.iss"},
+  "dependencies": ["Flask", "PySide6", "PySide6-WebEngine", "requests", "yt-dlp", "FFmpeg (external runtime dependency for merging/conversion)"],
+  "notes": ["The supplied application remains the main implementation; repository files provide installation, testing, packaging and documentation support."]
+}
